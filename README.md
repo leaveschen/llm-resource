@@ -1,2 +1,6 @@
 # llm-resource
-LLM resources.
+
+My large language model homepage.
+- Paper reading
+- Corpus resource
+- Example code
