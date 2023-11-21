@@ -50,8 +50,6 @@ $$
 
 https://zhuanlan.zhihu.com/p/646791309
 
- 
-
 ### QLoRA
 
 [[2305.14314] QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314)
@@ -76,8 +74,6 @@ $$
 
 这样做的问题在于，一旦有一些比如 outlier，量化效果就会很差，一个常用的解决办法是对 tensor 分块做量化
 
-
-
 **4-bit NoramlFloat quantization**
 
 建立在 Quantile Quantization 上（理论上最优的数据类型，保证每个 quantization bin 具有相同数量的值，但其分位数估计的过程是昂贵的，使用一些快速的近似算法如SRAM分位数来估计它们，会对异常值有很大的量化误差，而这些异常值通常是最重要的值）
@@ -100,25 +96,17 @@ $$
 
 **这部分可能要看下代码才能更清楚**
 
-
-
 **Double Quantization**
 
 这步其实是对量化常数（上面量化计算中的系数）做进一步量化，这块有收益主要是因为采取分块策略，导致一个大矩阵会有大量的量化常数，文中这一步采用 fp8 进行量化，没有观察到显著的性能下降
-
-
 
 **Paged Optimizers**
 
 这块主要是用 NVIDIA 的 unified memory（在 gpu memory 不足时与 cpu memory 交换的优化），文章主要用来优化器状态上
 
-
-
 参考：
 
 https://zhuanlan.zhihu.com/p/648239462
-
-
 
 ### AdaLoRA
 
